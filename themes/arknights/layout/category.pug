@@ -1,0 +1,43 @@
+extends includes/layout.pug
+
+block content
+  -
+    const categoriesList = list_categories({
+      order: 1
+      , show_count: theme.archives.categories_count
+    })
+  -
+    const tagsList = list_tags({
+      order: -1
+      , show_count: theme.archives.tags_count
+    })
+  -
+    const archivesList = list_archives({
+      type: 'yearly'
+      , order: -1
+      , show_count: false
+    })
+  #archive-flex
+    #Archives
+      h1= page.category
+      #Archives-bg
+        - page.posts.each(function(article){
+        .category-item
+          div(style="width:115px;display:inline-block")
+            time(datetime=date_xml(article.date))= date(article.date)
+          a(href=url_for(article.path))= article.title
+        - })
+        #paginator!= paginator()
+    #archive-aside
+      #Categories
+        h1 categories
+        if categoriesList
+          != categoriesList
+        else
+          p None.
+      #Tags
+        h1 tags
+        if tagsList
+          != tagsList
+        else
+          p None.

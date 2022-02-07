@@ -8,3 +8,5 @@ public/
 .env
 .env.build
 .vercel
+u.sh
+.dist/
