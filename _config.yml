@@ -114,3 +114,9 @@ theme: arknights
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+search:
+  enable: true
+  preload: true # 非必要
+  path: search.json # 非必要，缩小文件用
+  format: striptags # 非必要，缩小文件用（该选项能极大缩小搜索数据文件大小，建议开启）
