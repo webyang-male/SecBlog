@@ -21,15 +21,18 @@ body header
     display: inline-block
 
 main
+  // 让视图缩小时，内容页仍处于居中状态
+  margin: 0 auto
+  max-width: 1600px
   transition: .3s
-  padding-top: 40px
+  padding-top: 50px
   display: flex
   flex-grow: 1
   flex-direction: row
   flex-wrap: nowrap
   align-items: stretch
   z-index: 1
-  height: calc(100% - 40px)
+  height: calc(100% - 50px)
 
 #paginator
   user-select: none

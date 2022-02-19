@@ -57,8 +57,13 @@ gitalk:
 
 # 图表支持
 mermaid:
-  enable: true
+  enable: false
   version: '8.13.5'
+
+pjax:
+  enable: false
+  version: '0.2.8'
+
 
 # main menu navigation
 menu:
@@ -70,7 +75,9 @@ menu:
 # stylesheets loaded in the <head>
 stylesheets:
 - https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark-reasonable.min.css
+- /css/custom.css
 
 # scripts loaded in the end of the body
 scripts:
 - https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/highlight.min.js
+- /js/custom.js
