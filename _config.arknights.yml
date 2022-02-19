@@ -57,15 +57,15 @@ gitalk:
 
 # 图表支持
 mermaid:
-  enable: false
+  enable: true
   version: '8.13.5'
 
 # main menu navigation
 menu:
   Home: ''
   About: about/
-#  Contact: contact/
   Archives: archives/
+  Notice: notice/
 
 # stylesheets loaded in the <head>
 stylesheets:
