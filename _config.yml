@@ -112,6 +112,10 @@ search:
   path: search.json #非必要，缩小文件用
   format: striptags #非必要，缩小文件用（该选项能极大缩小搜索数据文件大小，建议开启）
 
+pjax:
+  enable: false
+  version: '0.2.8'
+  
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
