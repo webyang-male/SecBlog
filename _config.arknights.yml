@@ -70,6 +70,7 @@ menu:
 # stylesheets loaded in the <head>
 stylesheets:
 - https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark-reasonable.min.css
+- /css/custom.css
 
 # scripts loaded in the end of the body
 scripts:
