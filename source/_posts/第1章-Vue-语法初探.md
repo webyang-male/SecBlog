@@ -37,8 +37,181 @@ https://v3.cn.vuejs.org/guide/
 #### 编写 HelloWorld 和 Counter
 
 ````html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://cn.vuejs.org/images/logo.svg">
+    <title>imooc-v3</title>
+    <!-- 引用vue.js -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="root">
 
+    </div>
+    <script>
+      // 创建一个Vue实例
+       Vue.createApp({
+         template: '<div>hello world</div>',
+       }).mount('#root')
+    </script>
+  </body>
+</html>
 ````
 
+````html
+  <body>
+    <div id="root"></div>
+    <script>
+      // 创建一个Vue实例
+      Vue.createApp({
+        //数据
+        data() {
+          return {
+            counter: 1,
+          };
+        },
+        template: "<div>{{counter}}</div>",
+      }).mount("#root");
+    </script>
+  </body>
+````
 
+#### mounted函数
+
+文档:https://v3.cn.vuejs.org/api/options-lifecycle-hooks.html#mounted
+
+页面加载完成，执行此函数
+
+```html
+  <body>
+    <div id="root"></div>
+    <script>
+      // 创建一个Vue实例
+      Vue.createApp({
+        //数据
+        data() {
+          return {
+            counter: 1,
+          };
+        },
+        template: "<div>{{counter}}</div>",
+        mounted() {
+          console.log("加载完成我执行");
+          setInterval(() => {
+             this.$data.counter++;
+            // this.counter++;//每秒自增
+          }, 1000);
+        },
+      }).mount("#root");
+    </script>
+  </body>
+```
+
+#### 编写案例
+
+v-xx指令教程:https://v3.cn.vuejs.org/api/directives.html#v-html
+
+##### 字符串反转
+
+````html
+ <body>
+    <div id="root"></div>
+    <script>
+      // 创建一个Vue实例
+      Vue.createApp({
+        //数据
+        data() {
+          return {
+            text: "hello coder",
+          };
+        },
+        methods: {
+          handerBtnclick() {
+            this.text = this.text.split("").reverse().join("");
+          },
+        },
+        template: `<div>
+        {{text}}
+        <button v-on:click="handerBtnclick">反转</button>
+        </div>`,
+      }).mount("#root");
+    </script>
+  </body>
+````
+
+##### 内容隐藏
+
+````html
+  <body>
+    <div id="root"></div>
+    <script>
+      // 创建一个Vue实例
+      Vue.createApp({
+        //数据
+        data() {
+          return {
+            show: true,
+          };
+        },
+        methods: {
+          handerBtnclick() {
+              this.show = !this.show;
+          },
+        },
+        template: `<div>
+           <p v-if="show"> hello coder</p>
+        <button v-on:click="handerBtnclick">显示/隐藏</button>
+        </div>`,
+      }).mount("#root");
+    </script>
+  </body>
+````
+
+##### TodoList
+
+````html
+ <body>
+    <div id="root"></div>
+    <script>
+      // 创建一个Vue实例
+      Vue.createApp({
+        //数据
+        data() {
+          return {
+            inputValue: "",
+            list: [],
+          };
+        },
+        methods: {
+          handerAddItem() {
+            this.list.push(this.inputValue);
+            this.inputValue = "";
+          },
+        },
+        mounted() {
+          let input = document.querySelector("#root > div > input");
+          input.value = "";
+        },
+        //这里的item是v-for中的变量
+        template: `
+        <div>
+        <input v-model="inputValue" />
+        <button v-on:click="handerAddItem">增加</button>
+        <ul>
+            <li v-for="(item,index) in list">{{item}}</li> 
+        </ul>
+        </div>
+        `,
+      }).mount("#root");
+    </script>
+    <script>
+      //   let input = document.querySelector("#root > div > input");
+      //   input.value = '';
+    </script>
+  </body>
+````
 
