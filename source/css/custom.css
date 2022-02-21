@@ -1,0 +1,52 @@
+/* 状态提示框样式 */
+.custom-block.danger,
+.custom-block.tip,
+.custom-block.warning {
+  padding: 0.1rem 1.5rem;
+  border-left-width: 0.5rem;
+  border-left-style: solid;
+  margin: 1rem 0;
+}
+.custom-block .custom-block-title {
+  font-weight: 600;
+  margin-bottom: -0.4rem;
+}
+/* 绿色提示 */
+.custom-block.tip {
+  background-color: rgb(243 245 247);
+  border-color: rgb(66 185 131);
+}
+/* 黄色警告 */
+.custom-block.warning {
+  background-color: rgb(255 229 100 / 30%);
+  border-color: rgb(231 192 0);
+  color: rgb(107 89 0);
+}
+/* 危险红色 */
+.custom-block.danger {
+  background-color: rgb(255 230 230);
+  border-color: rgb(204 0 0);
+  color: rgb(77 0 0);
+}
+/* 关于页 */
+span.aboutLove {
+  color: rgb(255 99 71);
+}
+span.first-tips {
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: rgb(0 0 0 / 0%) !important;
+  background-image: linear-gradient(
+    120deg,
+    rgb(246 211 101) 0,
+    rgb(253 160 133) 100%
+  );
+}
+span.program {
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: rgb(0 0 0 / 0%) !important;
+  background-image: linear-gradient(
+    to right,
+    rgb(146 254 157) 0,
+    rgb(0 201 255) 100%
+  );
+}

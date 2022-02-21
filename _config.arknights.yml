@@ -12,7 +12,7 @@ aside:
   block_in_top: false # 目前为侧边栏文章目录置顶
   copyright: # 版权声明、备案号等，设置为 null 不显示
     ©: 2021 to 2022
-    ICP: lz就不备案
+    ICP: 就不备案肿么了
 
 #搜索
 search:

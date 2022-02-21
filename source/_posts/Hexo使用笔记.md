@@ -28,7 +28,7 @@ password: (填写你想设置的密码)
 ---
 ```
 
-### markdown文字颜色
+### 文字颜色
 
 ```html
 <font style="color:lightskyblue;">
@@ -48,6 +48,25 @@ password: (填写你想设置的密码)
 
 <font style="color:gold;">
 ```
+
+### 模态提示
+
+````html
+<div class="custom-block danger">
+  <p class="custom-block-title">注意</p> 
+  <p>这是文本</p>
+</div>
+
+<div class="custom-block warning">
+  <p class="custom-block-title">注意</p> 
+  <p>这是文本</p>
+</div>
+
+<div class="custom-block tip">
+  <p class="custom-block-title">TIP</p> 
+  <p>这是文本</p>
+</div>
+````
 
 ## Hexo
 

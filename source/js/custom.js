@@ -19,6 +19,10 @@ window.onload = function () {
       { passive: false }
     );
   })();
+  //备案
+  let icp = document.querySelector("body > main > div > aside > footer > nobr:nth-child(3) > span.text-content");
+  icp.style.cssText = "margin:8px 0;";
+  console.log(icp);
 };
 
 //控制台打印
