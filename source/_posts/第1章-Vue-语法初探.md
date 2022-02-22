@@ -5,7 +5,7 @@ tags: vue
 categories:
   - - WEB前端
     - 框架
-description: 通过编写实际例子，带你对Vue的语法有个粗浅的认知
+description: 通过编写实际例子，Vue的语法有个粗浅的认知
 ---
 
 
@@ -213,5 +213,56 @@ v-xx指令教程:https://v3.cn.vuejs.org/api/directives.html#v-html
       //   input.value = '';
     </script>
   </body>
+````
+
+####  组件概念初探
+
+````html
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  // mvvm , vue 实例，vue 组件
+  const app = Vue.createApp({
+    data() {
+      return {
+        inputValue: '',
+        list: []
+      }
+    },
+    methods: {
+      handleAddItem() {
+        this.list.push(this.inputValue);
+        this.inputValue = '';
+      }
+    },
+    template: `
+      <div>
+        <input v-model="inputValue" />
+        <button
+          v-on:click="handleAddItem"
+          v-bind:title="inputValue"
+        >
+          增加
+        </button>
+        <ul>
+          <todo-item
+            v-for="(item, index) of list"
+            v-bind:content="item"
+            v-bind:index="index"
+          />
+        </ul>
+      </div>
+    `
+  });
+
+  app.component('todo-item', {
+    props: ['content', 'index'],
+    template: '<li>{{index}} -- {{content}}</li>'
+  });
+
+  app.mount('#root');
+
+</script>
 ````
 
