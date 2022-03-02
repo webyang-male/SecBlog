@@ -1,5 +1,5 @@
 ---
-title: 第2章 Vue 基础语法浅知
+title: 第2章 Vue3 基础语法浅知
 date: 2022-02-22 22:11:50
 tags: vue
 categories:

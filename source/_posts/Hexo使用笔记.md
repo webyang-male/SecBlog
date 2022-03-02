@@ -1,7 +1,7 @@
 ---
 title: Hexo使用笔记
 date: 2022-02-07 18:43:25
-sticky: 9
+sticky: 999
 tags: Hexo
 categories: 主题
 description: Hexo使用学习笔记

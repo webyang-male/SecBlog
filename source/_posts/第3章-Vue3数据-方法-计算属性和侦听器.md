@@ -1,5 +1,5 @@
 ---
-title: 第3章 计算属性和侦听器&&样式绑定
+title: 第3章 Vue3计算属性和侦听器&&样式绑定
 date: 2022-02-26 16:24:13
 tags: vue
 categories:

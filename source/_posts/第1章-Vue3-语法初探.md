@@ -1,5 +1,5 @@
 ---
-title: 第1章 Vue 语法初探
+title: 第1章 Vue3 语法初探
 date: 2022-02-17 23:02:51
 tags: vue
 categories:
