@@ -235,3 +235,236 @@ description:
   </script>
 ````
 
+##### Prop 的大小写命名
+
+教程:https://v3.cn.vuejs.org/guide/component-props.html#prop-%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%86%99%E5%91%BD%E5%90%8D-camelcase-vs-kebab-case
+
+##### 单向数据流
+
+````js
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  // v-bind="params"
+  // :content="params.content" :a="params.a" :b="params.b" :c="params.c"
+  // 属性传的时候，如果使用 content-abc 这种命名，接的时候，使用 contentAbc 命名
+  // 单项数据流的概念: 子组件可以使用父组件传递过来的数据，但是绝对不能修改传递过来的数据
+  const app = Vue.createApp({
+    data() {
+      return { num: 1 }
+    },
+    template: `
+      <div>
+        <counter :count="num" />
+        <counter :count="num" />
+        <counter :count="num" />
+      </div>
+    `
+  });
+
+  app.component('counter', {
+    props: ['count'],
+    template: `<div @click="count += 1">{{count}}</div>`
+  });
+
+  const vm = app.mount('#root');
+</script>
+````
+
+##### Non-Props 属性
+
+教程:https://v3.cn.vuejs.org/guide/component-attrs.html
+
+###### 禁用 Attribute 继承
+
+<div class="custom-block tip">
+  <p class="custom-block-title">TIP</p> 
+  <p>如果你不希望组件的根元素继承 attribute，可以在组件的选项中设置 inheritAttrs: false。</p>
+  <p>禁用 attribute 继承的常见场景是需要将 attribute 应用于根节点之外的其他元素。</p>
+</div>
+
+###### 多个根节点上的 Attribute 继承
+
+与单个根节点组件不同，具有多个根节点的组件不具有自动 attribute [fallthrough (隐式贯穿)](https://en.wiktionary.org/wiki/fall-through#English) 行为。如果未显式绑定 `$attrs`，将发出运行时警告。
+
+```html
+<custom-layout id="custom-layout" @click="changeValue"></custom-layout>
+```
+
+```js
+// 这将发出警告
+app.component('custom-layout', {
+  template: `
+    <header>...</header>
+    <main>...</main>
+    <footer>...</footer>
+  `
+})
+
+// 没有警告，$attrs 被传递到 <main> 元素
+app.component('custom-layout', {
+  template: `
+    <header>...</header>
+    <main v-bind="$attrs">...</main>
+    <footer>...</footer>
+  `
+})
+```
+
+###### 小结代码
+
+````js
+  <script>
+    // Non-prop 属性
+    const app = Vue.createApp({
+      template: `
+        <div>
+          <counter msg="hello" msg1="hello1" />
+        </div>
+      `,
+    });
+
+    app.component("counter", {
+      // inheritAttrs: false,//是否继承父组件的属性
+      mounted() {
+        console.log(this.$attrs.msg);
+      },
+      //   v-bind="$attrs"绑定所有属性
+      template: `
+        <div :msg="$attrs.msg">Counter</div>
+        <div v-bind="$attrs">Counter</div>
+        <div :msg1="$attrs.msg1">Counter</div>
+      `,
+    });
+
+    const vm = app.mount("#root");
+  </script>
+````
+
+#### 父子组件通信
+
+`$emit`
+
+应用教程1:https://v3.cn.vuejs.org/guide/component-basics.html#%E7%9B%91%E5%90%AC%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BA%8B%E4%BB%B6
+
+API教程2:https://v3.cn.vuejs.org/api/instance-methods.html#emit
+
+##### 自定义事件
+
+教程：https://v3.cn.vuejs.org/guide/component-custom-events.html
+
+````js
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          count: 1,
+        };
+      },
+      methods: {
+        //执行函数
+        handleAddOne() {
+          this.count += 1;
+        },
+      },
+      //父组件接收子组件的事件,分隔符命名
+      template: `
+        <div>
+          <counter :count="count" @add-one="handleAddOne"/>
+        </div>
+      `,
+    });
+
+    app.component("counter", {
+      props: ["count"],
+      methods: {
+          //点击触发自身事件
+        handleClick() {
+          //子组件的事件传递给父组件,驼峰命名
+          this.$emit("addOne");
+        },
+      },
+      //子组件模板绑定点击事件
+      template: `
+        <div @click="handleClick">{{count}}</div>
+      `,
+    });
+
+    const vm = app.mount("#root");
+  </script>
+````
+
+###### 使用事件抛出一个值
+
+````html
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://cn.vuejs.org/images/logo.svg" />
+    <title>imooc-v3</title>
+    <!-- 引用vue.js -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .demo {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background: deepskyblue;
+        color: #fff;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          count: 1,
+        };
+      },
+      methods: {
+        //执行函数
+        handleAdd(param) {
+          this.count += param;
+        },
+      },
+      //父组件接收子组件的事件,分隔符命名
+      template: `
+        <div>
+          <counter :count="count" @add="handleAdd" class="demo"/>
+        </div>
+      `,
+    });
+
+    app.component("counter", {
+      props: ["count"],
+      methods: {
+        //点击触发自身事件
+        handleClick() {
+          //子组件的事件传递给父组件,驼峰命名
+          this.$emit("add", 2);
+        },
+      },
+      //子组件模板绑定点击事件
+      template: `
+        <div @click="handleClick">{{count}}</div>
+      `,
+    });
+
+    const vm = app.mount("#root");
+  </script>
+</html>
+
+````
+

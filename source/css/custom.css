@@ -50,3 +50,7 @@ span.program {
     rgb(0 201 255) 100%
   );
 }
+/* 提示框文本适配 */
+.custom-block p{
+  color: black !important;
+}
