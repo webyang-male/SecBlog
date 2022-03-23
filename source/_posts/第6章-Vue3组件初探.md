@@ -468,3 +468,127 @@ API教程2:https://v3.cn.vuejs.org/api/instance-methods.html#emit
 
 ````
 
+##### v-model-参数
+
+教程:https://v3.cn.vuejs.org/guide/component-custom-events.html#v-model-%E5%8F%82%E6%95%B0
+
+````js
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          count: 1,
+        };
+      },
+      template: `
+          <counter v-model="count" class="demo"/>
+      `,
+    });
+
+    app.component("counter", {
+      //modelValue是默认固定写法
+      props: ["modelValue"],
+      methods: {
+        //点击触发自身事件
+        handleClick() {
+          //子组件的事件传递给父组件,驼峰命名
+          this.$emit("update:modelValue", this.modelValue + 6);
+        },
+      },
+      //子组件模板绑定点击事件
+      template: `
+        <div @click="handleClick">{{modelValue}}</div>
+      `,
+    });
+
+    const vm = app.mount("#root");
+  </script>
+````
+
+或者自定义参数名：
+
+````js
+    const app = Vue.createApp({
+      data() {
+        return {
+          count: 1,
+        };
+      },
+      template: `
+          <counter v-model:myApp="count" class="demo"/>
+      `,
+    });
+
+    app.component("counter", {
+      props: ["myApp"],
+      methods: {
+        //点击触发自身事件
+        handleClick() {
+          //子组件的事件传递给父组件,驼峰命名
+          this.$emit("update:myApp", this.myApp + 6);
+        },
+      },
+      //子组件模板绑定点击事件
+      template: `
+        <div @click="handleClick">{{myApp}}</div>
+      `,
+    });
+
+    const vm = app.mount("#root");
+````
+
+#### 组件间双向绑定高级内容
+
+#####  多个 `v-model` 绑定
+
+教程:https://v3.cn.vuejs.org/guide/component-custom-events.html#%E5%A4%9A%E4%B8%AA-v-model-%E7%BB%91%E5%AE%9A
+
+##### 处理 v-model 修饰符
+
+教程: https://v3.cn.vuejs.org/guide/component-custom-events.html#%E5%A4%84%E7%90%86-v-model-%E4%BF%AE%E9%A5%B0%E7%AC%A6
+
+````js
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        count: 'a',
+      }
+    },
+    template: `
+      <counter v-model.uppercase="count" />
+    `
+  });
+
+  app.component('counter', {
+    props: {
+      'modelValue': String,
+      //固定写法
+      'modelModifiers': {
+        default: ()=> ({})
+      }
+    },
+    methods: {
+      handleClick() {
+        let newValue = this.modelValue + 'b';
+        if(this.modelModifiers.uppercase) {
+          newValue = newValue.toUpperCase();
+        }
+        this.$emit('update:modelValue', newValue);
+      },
+    },
+    template: `
+      <div @click="handleClick">{{modelValue}}</div>
+    `
+  });
+
+  const vm = app.mount('#root');
+</script>
+````
+
+#### 插槽
+
+教程:https://v3.cn.vuejs.org/guide/component-slots.html#%E6%8F%92%E6%A7%BD

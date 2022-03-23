@@ -11,10 +11,11 @@
 - **Dr.LingYun: <https://dr-lingyun.gitee.io/>**
 - **Dr.XIMU：<http://b.ligzs.cn/>**
 - **Dr.ToUNVRSe <https://tounvrse.github.io/>**
+- **Dr.tyqtyq <https://tyq0712.github.io/>**
 
 如果使用了这个主题，欢迎在这儿贴预览链接~
 
-![主题预览图片](./demo.png)
+![主题预览图片](./demo.jpg)
 
 ## 系统环境
 
@@ -39,12 +40,12 @@ git clone https://github.com/Yue-plus/hexo-theme-arknights.git themes/arknights
 
 npm 用户：
 ```shell script 
-cnpm install hexo-server hexo-browsersync hexo-renderer-pug hexo-renderer-dartsass --save
+cnpm install hexo-server hexo-browsersync hexo-renderer-pug --save
 ```
 
 yarn 用户：
 ```shell script
-yarn add hexo-server hexo-browsersync hexo-renderer-pug hexo-renderer-dartsass
+yarn add hexo-server hexo-browsersync hexo-renderer-pug
 ```
 
 ### 修改配置文件
@@ -353,6 +354,28 @@ reward: true/false
 > Markdown 和 HTML 文件会被解析并放到 `public` 文件夹，而其他文件会被拷贝过去。
 >
 > ——来自 [Hexo 官方文档](https://hexo.io/zh-cn/docs/setup#source)
+
+## 字数/阅读时长统计
+
+可以使用 [`hexo-wordcount`](https://github.com/willin/hexo-wordcount)：
+
+npm 用户：
+```shell script 
+cnpm install hexo-wordcount --save
+```
+
+yarn 用户：
+```shell script
+yarn add hexo-wordcount
+```
+
+之后修改 **Hexo 目录** 下的 `_config.arknights.yml` 文件：
+
+```yaml
+post:
+  count: true # 是否显示字数统计
+  time: true # 是否显示阅读时长统计
+```
 
 ## 参与开发
 

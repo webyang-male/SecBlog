@@ -1,3 +1,11 @@
+window.addEventListener("DOMContentLoaded", function () {
+  //备案
+  let icp = document.querySelector(
+    "body > main > div > aside > footer > nobr:nth-child(3) > span.text-content"
+  );
+  icp.style.cssText = "margin:8px 0;";
+});
+
 window.onload = function () {
   // 动态标题头
   !(function () {
@@ -19,9 +27,6 @@ window.onload = function () {
       { passive: false }
     );
   })();
-  //备案
-  let icp = document.querySelector("body > main > div > aside > footer > nobr:nth-child(3) > span.text-content");
-  icp.style.cssText = "margin:8px 0;";
 };
 
 //控制台打印
@@ -79,5 +84,3 @@ if (window.console) {
   };
   console.log(string.makeMulti());
 }
-
-
