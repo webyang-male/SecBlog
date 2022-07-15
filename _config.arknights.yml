@@ -71,7 +71,6 @@ menu:
   About: about/
   Archives: archives/
   Notice: notice/
-
 # stylesheets loaded in the <head>
 stylesheets:
 - https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark-reasonable.min.css

@@ -125,3 +125,8 @@ theme: arknights
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+server:
+  port: 4000
+  compress: true
+  header: true
