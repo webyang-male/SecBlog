@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", function () {
   let icp = document.querySelector(
     "body > main > div > aside > footer > nobr:nth-child(3) > span.text-content"
   );
-  icp.style.cssText = "margin:8px 0;";
+  //icp.style.cssText = "margin:8px 0;";
 });
 
 window.onload = function () {
