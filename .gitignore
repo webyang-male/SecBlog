@@ -5,8 +5,4 @@ db.json
 node_modules/
 public/
 .deploy*/
-.env
-.env.build
-.vercel
-u.sh
-.dist/
+_multiconfig.yml
