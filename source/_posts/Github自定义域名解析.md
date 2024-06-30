@@ -9,11 +9,11 @@ tags: [github,blog,hexo]
 
 代码提交后，点击仓库的`setting`，进入存储库相关设置。`General`这里首先设置好存储库的名称和代码分支：
 
-![github常规设置](assets/githubpages-setting.png)
+![github常规设置](source/assets/githubpages-setting.png)
 
 `Pages`这里设置博客代码的分支和构建文件夹
 
-![github-Pages设置](assets/githubpages-setting1.png)
+![github-Pages设置](source/assets/githubpages-setting1.png)
 
 下面是用于保存或删除 GitHub Pages 上的自定义域的设置框的屏幕截图。 在显示“example.com”的文本框右侧有一个红色类型的标记为“删除”的按钮。
 
@@ -38,7 +38,7 @@ tags: [github,blog,hexo]
 
 图示为腾讯云DNS解析案例：
 
-![tx-dns](assets/tx-dns.png)
+![tx-dns](source/assets/tx-dns.png)
 
 这里起的二级域名”test“，比如你的顶级域名是”example.com“，那么此图的自定义域名即为”test.example.com“。耐心等待几分钟，DNS解析需要时间。成功即可通过自定义域名访问部署于github的hexo博客。
 
