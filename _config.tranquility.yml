@@ -23,6 +23,11 @@ subpage: # 开启“子页”功能，详见 README
       title: 人工智能 # 菜单名，如 开发者
       icon: /images/icon/icon-pi.svg # 图标的路径
       description: 人工智能相关 # 描述
+    - name: Life # 文章的分类（category）名，如 developer
+      path: life # 若不设置则默认使用 name
+      title: 素日平生 # 菜单名，如 开发者
+      icon: /images/icon/icon-life.svg # 图标的路径
+      description: 日常生活记录 # 描述    
 
 index: # 配置首页个性化内容
   motto: "灵魂的腐烂是停止思考！"
@@ -215,3 +220,4 @@ search:
   enable: true
   field: post
   content: true
+

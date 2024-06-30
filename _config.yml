@@ -4,8 +4,8 @@
 
 # Site
 title: 大赵同学
-subtitle: ''
-description: ''
+subtitle: 
+description: 
 keywords:
 author: Zain
 language: zh
@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://blog.zzydev.cc/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -102,3 +102,4 @@ theme: tranquility
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
