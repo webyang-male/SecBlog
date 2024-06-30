@@ -1,6 +1,6 @@
 info=$1
 if ["$info" = ""];
-then info="fix:Error: Validation Failed(gitalk)"
+then info="update:article update"
 fi
 git add -A
 git commit -m "$info"
