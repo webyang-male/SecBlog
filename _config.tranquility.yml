@@ -73,7 +73,7 @@ gitalk: # gitalk 评论
   enable: true
   owner: webyang-male # MUST HAVE, Your Github Username
   admin: webyang-male
-  repo: SecBlog # MUST HAVE, The name of the repo you use to store Gitment comments
+  repo: secBlog # MUST HAVE, The name of the repo you use to store Gitment comments
   clientID: Ov23liy1sLEtYDuICD5N # MUST HAVE, Github client id for the Gitment
   clientSecret: 5eca93c4912991e1369710fdc6a10d543034c65a # EITHER this or proxy_gateway, Github access secret token for the Gitment
 
