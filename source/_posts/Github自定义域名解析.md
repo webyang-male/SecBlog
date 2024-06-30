@@ -9,7 +9,7 @@ tags: [github,blog,hexo]
 
 代码提交后，点击仓库的`setting`，进入存储库相关设置。`General`这里首先设置好存储库的名称和代码分支：
 
-![github常规设置](./source/_posts/assets/githubpages-setting.png)
+![github常规设置](source/_posts/assets/githubpages-setting.png)
 
 `Pages`这里设置博客代码的分支和构建文件夹
 
