@@ -70,12 +70,12 @@ reward: # 赞赏
 
 # see https://github.com/gitalk/gitalk
 gitalk: # gitalk 评论
-  enable: false
-  owner: # MUST HAVE, Your Github Username
-  admin:
-  repo: # MUST HAVE, The name of the repo you use to store Gitment comments
-  clientID: # MUST HAVE, Github client id for the Gitment
-  clientSecret: # EITHER this or proxy_gateway, Github access secret token for the Gitment
+  enable: true
+  owner: webyang-male # MUST HAVE, Your Github Username
+  admin: webyang-male
+  repo: SecBlog # MUST HAVE, The name of the repo you use to store Gitment comments
+  clientID: Ov23liy1sLEtYDuICD5N # MUST HAVE, Github client id for the Gitment
+  clientSecret: 5eca93c4912991e1369710fdc6a10d543034c65a # EITHER this or proxy_gateway, Github access secret token for the Gitment
 
   distractionFreeMode: false # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
@@ -87,7 +87,7 @@ gitalk: # gitalk 评论
 
 # see https://github.com/tea3/hexo-related-popular-posts
 related_post:
-  enable: true
+  enable: false
   config:
     maxCount: 5 # Maximum count of a list. default 5
     ulClass: # Class name of element. deafult 'popular-posts'
