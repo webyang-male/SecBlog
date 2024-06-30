@@ -31,7 +31,7 @@ index: # 配置首页个性化内容
     - 应似飞鸿踏雪泥
   photo: /images/about.jpg
   about:
-    title: 关于
+    title: 星火
     text:
       - 飘来的是云，飘去的也是云
       -
@@ -62,7 +62,7 @@ social:
     url: https://www.zhihu.com/people/shi-guang-fu-bi
 
 reward: # 赞赏
-  enable: true
+  enable: false
   face: /assets/author-face.jpg # 头像图片
   paycode: /assets/pay-code.jpg # 支付码图片
   text: “给作者倒杯卡布奇诺”
